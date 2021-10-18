@@ -188,7 +188,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (index != state.listQuestion.length - 1) {
+                            index++;
+                          } else {
+                            index = 0;
+                          }
+                          bloc.add(FetchQuestionsEvent());
+                        },
                         child: Icon(
                           Icons.arrow_forward,
                         )),
